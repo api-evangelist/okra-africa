@@ -1,0 +1,242 @@
+{
+  "info": {
+    "name": "Okra API (Historical)",
+    "description": "RETIRED. Historical open finance / open banking REST API for Africa (Nigeria). Okra ceased operations in May 2025 and the host api.okra.ng no longer resolves. Base URL: https://api.okra.ng/v2 (production) or https://api.okra.ng/v2/sandbox (sandbox). Auth: Okra Secret key as an HTTP Bearer token. Endpoint paths and auth confirmed from the okraHQ/okra-node SDK; request bodies are modeled. Reads and writes both used POST with a JSON filter body.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{okraSecret}}", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.okra.ng/v2", "type": "string" },
+    { "key": "okraSecret", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Retrieve authentication data",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"record\": \"\",\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/products/auths", "host": ["{{baseUrl}}"], "path": ["products", "auths"] },
+            "description": "Creates or refreshes the auth record for a linked account."
+          }
+        },
+        {
+          "name": "Get auth by customer",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/auth/getByCustomer", "host": ["{{baseUrl}}"], "path": ["auth", "getByCustomer"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Accounts",
+      "item": [
+        {
+          "name": "Retrieve linked accounts",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"record\": \"\",\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/products/accounts", "host": ["{{baseUrl}}"], "path": ["products", "accounts"] }
+          }
+        },
+        {
+          "name": "Get accounts by customer",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/accounts/getByCustomer", "host": ["{{baseUrl}}"], "path": ["accounts", "getByCustomer"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Balance",
+      "item": [
+        {
+          "name": "Check real-time balance",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"account_id\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/balance/check", "host": ["{{baseUrl}}"], "path": ["balance", "check"] }
+          }
+        },
+        {
+          "name": "Refresh balance",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"account_id\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/balance/refresh", "host": ["{{baseUrl}}"], "path": ["balance", "refresh"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "Process transactions",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"record\": \"\",\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/transactions/process", "host": ["{{baseUrl}}"], "path": ["transactions", "process"] }
+          }
+        },
+        {
+          "name": "Download transaction statement",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/products/transactions/download", "host": ["{{baseUrl}}"], "path": ["products", "transactions", "download"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Identity",
+      "item": [
+        {
+          "name": "Retrieve identity profile",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"record\": \"\",\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/products/identities", "host": ["{{baseUrl}}"], "path": ["products", "identities"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Income",
+      "item": [
+        {
+          "name": "Process income",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"record\": \"\",\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/products/income/process", "host": ["{{baseUrl}}"], "path": ["products", "income", "process"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Verification (KYC)",
+      "item": [
+        {
+          "name": "Verify BVN",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"bvn\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/products/kyc/bvn-verify", "host": ["{{baseUrl}}"], "path": ["products", "kyc", "bvn-verify"] }
+          }
+        },
+        {
+          "name": "Verify NUBAN name match",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nuban\": \"\",\n  \"bank\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/products/kyc/nuban-name-verify", "host": ["{{baseUrl}}"], "path": ["products", "kyc", "nuban-name-verify"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Payments",
+      "item": [
+        {
+          "name": "Initiate payment",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"amount\": \"\",\n  \"currency\": \"NGN\",\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/pay/initiate", "host": ["{{baseUrl}}"], "path": ["pay", "initiate"] }
+          }
+        },
+        {
+          "name": "Initiate direct-debit authorization",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"amount\": \"\",\n  \"currency\": \"NGN\",\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/authorization/initiate", "host": ["{{baseUrl}}"], "path": ["authorization", "initiate"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Banks",
+      "item": [
+        {
+          "name": "List connectable banks",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}" },
+            "url": { "raw": "{{baseUrl}}/banks/list", "host": ["{{baseUrl}}"], "path": ["banks", "list"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "List customers",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}" },
+            "url": { "raw": "{{baseUrl}}/customers/list", "host": ["{{baseUrl}}"], "path": ["customers", "list"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Wallet",
+      "item": [
+        {
+          "name": "Check billing wallet balance",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{}" },
+            "url": { "raw": "{{baseUrl}}/wallet/balance/check", "host": ["{{baseUrl}}"], "path": ["wallet", "balance", "check"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "Schedule a report",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"customer\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/reports/schedule", "host": ["{{baseUrl}}"], "path": ["reports", "schedule"] }
+          }
+        }
+      ]
+    }
+  ]
+}

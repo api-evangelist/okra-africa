@@ -1,0 +1,57 @@
+generated: '2026-07-12'
+method: probed
+source: live DNS/TLS/HTTP probes of okra.ng and former Okra API/dev hosts
+status: retired
+retirementNote: >-
+  Okra ceased operations in May 2025. Live probes on 2026-07-12 confirm the
+  company's API and developer infrastructure is gone: api.okra.ng, dash.okra.ng,
+  docs.okra.ng, and identity-api.okra.ng do not resolve (NXDOMAIN). The apex
+  okra.ng now resolves to a HostPapa shared-hosting IP (23.94.150.194,
+  wgh22.wghservers.com) on whogohost nameservers and returns a broken/parked
+  WordPress page (HTTP 500 "Requirements Not Met"), presenting an EXPIRED Let's
+  Encrypt certificate issued to an unrelated domain (CN=fggcowerrioga.com,
+  expired 2023-07-19). This indicates the domain is no longer controlled/served
+  by Okra. Treat all former endpoints as dead.
+hosts:
+- host: okra.ng
+  resolves: true
+  ip: 23.94.150.194
+  ptr: wgh22.wghservers.com
+  hosting: HostPapa (AS36352)
+  https: true
+  https_valid: false
+  tls_cert_cn: fggcowerrioga.com
+  tls_cert_issuer: Let's Encrypt (R3)
+  tls_cert_expired: true
+  tls_cert_not_after: 'Jul 19 2023'
+  http_status: 500
+  server: Apache
+  hsts: false
+  note: Parked / repurposed WordPress page; certificate belongs to an unrelated domain. Not operated by Okra.
+- host: api.okra.ng
+  resolves: false
+  note: NXDOMAIN - former production API base (https://api.okra.ng/v2). Dead.
+- host: dash.okra.ng
+  resolves: false
+  note: NXDOMAIN - former developer dashboard / API key management. Dead.
+- host: docs.okra.ng
+  resolves: false
+  note: NXDOMAIN - former API documentation. Archived on the Wayback Machine only.
+- host: identity-api.okra.ng
+  resolves: false
+  note: NXDOMAIN - former Identity product host. Dead.
+domains:
+- domain: okra.ng
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: v=spf1 +a +mx include:_spf.google.com include:relay.mailchannels.net ~all
+  dmarc: false
+  mx: smtp.google.com
+  nameservers:
+  - nsa.whogohost.com
+  - nsb.whogohost.com
+  note: SPF and Google MX present on the parked domain; no DMARC or CAA. Reflects the current (post-Okra) registrant configuration, not Okra's original security posture.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

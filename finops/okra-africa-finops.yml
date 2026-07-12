@@ -1,0 +1,91 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Okra
+providerId: okra-africa
+created: '2026-07-12'
+modified: '2026-07-12'
+reconciled: false
+status: retired
+tags:
+- Open Banking
+- Open Finance
+- Payments
+- Fintech
+- Nigeria
+- FinOps
+- Cost Management
+description: >-
+  HISTORICAL FinOps view of Okra spend. Okra's API was billed on a
+  consumption basis - pay-as-you-go per successful API call and/or per connected
+  bank account - settled from a prepaid billing wallet, above a free production
+  allowance and free unlimited sandbox usage. Cost drivers were the number of
+  linked accounts (connections) and the volume of successful data/payment calls
+  across products (Auth, Accounts, Balance, Transactions, Identity, Income, KYC,
+  Payments). Okra ceased operations in May 2025; there is no active invoice to
+  manage. This record is retained for historical FinOps modeling only.
+notes: >-
+  Per-unit rates were not published by Okra and are not reconciled here. The
+  provider is defunct (api.okra.ng no longer resolves), so no live billing data
+  exists.
+sources:
+- https://okra.ng/pricing
+- https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Okra
+serviceCategory: Financial Data and Payments
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Prepaid
+  billingCurrency: NGN
+  chargeCategories:
+  - Usage
+  - Purchase
+focusColumns:
+  ServiceName: Okra Open Finance API
+  ServiceCategory: Financial Data and Payments
+  ProviderName: Okra
+  PublisherName: Okra
+  InvoiceIssuerName: Okra
+  BillingCurrency: NGN
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: successful_api_calls
+  description: Successful production API calls across data and payment products, billed per call above the free allowance.
+  unit: requests
+  aggregation: sum
+  dimensions:
+  - account
+  - product
+- name: connected_accounts
+  description: Bank accounts linked through the Okra Widget, a primary billing driver.
+  unit: connections
+  aggregation: sum
+  dimensions:
+  - account
+  - customer
+- name: payment_transactions
+  description: Bank-to-bank payments and direct-debit authorizations processed.
+  unit: transactions
+  aggregation: sum
+  dimensions:
+  - account
+principles:
+- name: Visibility
+  description: Track successful calls per product and the count of connected accounts drawing down the prepaid wallet.
+- name: Allocation
+  description: Tag Okra customers/records to internal cost centers so connection and call spend maps to the feature that drove it.
+- name: Optimization
+  description: Cache retrieved data and avoid redundant refreshes; batch KYC checks; retire idle account connections to reduce recurring cost.
+- name: Accountability
+  description: Monitor billing-wallet balance and auto-top-up thresholds so paid production usage is not interrupted, and review monthly draw-down.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Okra API (Historical)",
+    "version": "2.0",
+    "description": "RETIRED. Historical open finance / open banking REST API for Africa (Nigeria). Okra ceased operations in May 2025 and the host api.okra.ng no longer resolves. Base URL https://api.okra.ng/v2 (sandbox https://api.okra.ng/v2/sandbox). Auth is an Okra Secret key sent as an HTTP Bearer token. Endpoint paths and auth confirmed from the okraHQ/okra-node SDK; request bodies are modeled. Reads and writes both used POST with a JSON filter body."
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{okraSecret}}"
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Auth", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Retrieve authentication data", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/products/auths", "body": { "type": "json", "data": "{\n  \"record\": \"\",\n  \"customer\": \"\"\n}" } },
+          "docs": "Creates or refreshes the auth record for a linked account."
+        },
+        {
+          "info": { "name": "Get auth by customer", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/auth/getByCustomer", "body": { "type": "json", "data": "{\n  \"customer\": \"\"\n}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Accounts", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Retrieve linked accounts", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/products/accounts", "body": { "type": "json", "data": "{\n  \"record\": \"\",\n  \"customer\": \"\"\n}" } }
+        },
+        {
+          "info": { "name": "Get accounts by customer", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/accounts/getByCustomer", "body": { "type": "json", "data": "{\n  \"customer\": \"\"\n}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Balance", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Check real-time balance", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/balance/check", "body": { "type": "json", "data": "{\n  \"account_id\": \"\"\n}" } }
+        },
+        {
+          "info": { "name": "Refresh balance", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/balance/refresh", "body": { "type": "json", "data": "{\n  \"account_id\": \"\"\n}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Transactions", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Process transactions", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/transactions/process", "body": { "type": "json", "data": "{\n  \"record\": \"\",\n  \"customer\": \"\"\n}" } }
+        },
+        {
+          "info": { "name": "Download transaction statement", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/products/transactions/download", "body": { "type": "json", "data": "{\n  \"customer\": \"\"\n}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Identity", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Retrieve identity profile", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/products/identities", "body": { "type": "json", "data": "{\n  \"record\": \"\",\n  \"customer\": \"\"\n}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Income", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Process income", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/products/income/process", "body": { "type": "json", "data": "{\n  \"record\": \"\",\n  \"customer\": \"\"\n}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Verification (KYC)", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Verify BVN", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/products/kyc/bvn-verify", "body": { "type": "json", "data": "{\n  \"bvn\": \"\"\n}" } }
+        },
+        {
+          "info": { "name": "Verify NUBAN name match", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/products/kyc/nuban-name-verify", "body": { "type": "json", "data": "{\n  \"nuban\": \"\",\n  \"bank\": \"\"\n}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Payments", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Initiate payment", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/pay/initiate", "body": { "type": "json", "data": "{\n  \"amount\": \"\",\n  \"currency\": \"NGN\",\n  \"customer\": \"\"\n}" } }
+        },
+        {
+          "info": { "name": "Initiate direct-debit authorization", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/authorization/initiate", "body": { "type": "json", "data": "{\n  \"amount\": \"\",\n  \"currency\": \"NGN\",\n  \"customer\": \"\"\n}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Banks", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List connectable banks", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/banks/list", "body": { "type": "json", "data": "{}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Customers", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List customers", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/customers/list", "body": { "type": "json", "data": "{}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Wallet", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Check billing wallet balance", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/wallet/balance/check", "body": { "type": "json", "data": "{}" } }
+        }
+      ]
+    },
+    {
+      "info": { "name": "Reports", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Schedule a report", "type": "http" },
+          "http": { "method": "POST", "url": "https://api.okra.ng/v2/reports/schedule", "body": { "type": "json", "data": "{\n  \"customer\": \"\"\n}" } }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

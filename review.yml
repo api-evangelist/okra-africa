@@ -1,0 +1,150 @@
+aid: okra-africa
+name: Okra
+review:
+  question: Does Okra expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-12'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Okra's documented public interface was a
+    request/response REST API over HTTPS (base https://api.okra.ng/v2), together
+    with a client-side account-linking Widget and server-to-server "app
+    callbacks" / webhooks that HTTP POST link and data-refresh events to a
+    business-configured URL. There is no documented server-push transport
+    (WebSocket ws://|wss:// or SSE) on Okra's own API to model. In any case the
+    service is retired: api.okra.ng no longer resolves.
+status:
+  lifecycle: retired
+  ceasedOperations: '2025-05'
+  reviewedLive: '2026-07-12'
+  reachable: false
+  note: |
+    Okra ceased operations in May 2025. As of the review date the developer and
+    API hosts (api.okra.ng, dash.okra.ng, docs.okra.ng, identity-api.okra.ng) do
+    not resolve. The apex okra.ng resolves to a HostPapa/whogohost parked page
+    presenting an expired Let's Encrypt certificate issued to an unrelated domain
+    (CN=fggcowerrioga.com), confirming the domain is no longer operated by Okra.
+findings:
+  summary: |
+    Okra did not publish a documented public WebSocket API. Okra was an open
+    finance / open banking data + payments provider for Nigeria. Its public API
+    was REST over HTTPS at base https://api.okra.ng/v2 (production) and
+    https://api.okra.ng/v2/sandbox/ (sandbox), authenticated with an Okra Secret
+    key sent as an HTTP Bearer token (Authorization: Bearer <secret>). Endpoints
+    were predominantly POST, including read operations that accepted a JSON
+    filter body. Account linking happened client-side via the Okra Widget, which
+    produced record/customer identifiers; app callbacks (webhooks) delivered link
+    and refresh events by server-to-server HTTP POST. No realtime, bidirectional,
+    or streaming WebSocket endpoint was documented anywhere in Okra's SDK or
+    reference docs. The company and its API are retired (shut down May 2025).
+  openSource: |
+    Okra's platform was proprietary/hosted. Okra published open-source client
+    SDKs (github.com/okraHQ), including okra-node (Node.js), okra-python,
+    okra-php, okra-flutter, and okra-js widget helpers. The Node SDK
+    (okraHQ/okra-node) was archived read-only on 2024-02-09 and is the primary
+    grounding source for base URL, auth, and endpoint paths in this entry.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.okra.ng/v2
+      documented: true
+      note: Production REST API. Sandbox base was https://api.okra.ng/v2/sandbox/. Retired - host no longer resolves.
+    - protocol: Widget
+      scheme: https
+      documented: true
+      note: Client-side Okra Widget link flow that produced the record/customer used by data endpoints. Not a server API transport.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: App callbacks POSTed link/refresh/data events to a business-configured URL. Server-to-endpoint HTTP, not WebSocket.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint was documented in Okra's SDK or reference docs.
+  endpointPrecision: |
+    Endpoint PATHS and the base URL are CONFIRMED from Okra's official
+    okraHQ/okra-node SDK (src/models/models.js, src/okra-client.js). The
+    HTTP methods (POST-dominant) and Bearer auth are CONFIRMED from the SDK's
+    req-wrapper.js. Request and response BODY SCHEMAS in the OpenAPI are MODELED
+    (reconstructed from SDK parameter models and archived docs) and are
+    illustrative, not authoritative. The live service could not be exercised
+    because it is shut down.
+  endpointsConfirmedRest:
+    - POST https://api.okra.ng/v2/products/auths
+    - POST https://api.okra.ng/v2/auth/getById
+    - POST https://api.okra.ng/v2/auth/getByCustomer
+    - POST https://api.okra.ng/v2/products/accounts
+    - POST https://api.okra.ng/v2/accounts/getById
+    - POST https://api.okra.ng/v2/accounts/getByCustomer
+    - POST https://api.okra.ng/v2/balance/check
+    - POST https://api.okra.ng/v2/balance/refresh
+    - POST https://api.okra.ng/v2/balance/getByCustomer
+    - POST https://api.okra.ng/v2/transactions/process
+    - POST https://api.okra.ng/v2/transactions/refresh
+    - POST https://api.okra.ng/v2/transactions/getByCustomer
+    - POST https://api.okra.ng/v2/products/transactions/download
+    - POST https://api.okra.ng/v2/products/identities
+    - POST https://api.okra.ng/v2/products/identity/merge
+    - POST https://api.okra.ng/v2/identity/getByCustomer
+    - POST https://api.okra.ng/v2/products/income/process
+    - POST https://api.okra.ng/v2/products/income/get
+    - POST https://api.okra.ng/v2/products/kyc/bvn-verify
+    - POST https://api.okra.ng/v2/products/kyc/nuban-verify
+    - POST https://api.okra.ng/v2/products/kyc/nuban-name-verify
+    - POST https://api.okra.ng/v2/products/kyc/tin-verify
+    - POST https://api.okra.ng/v2/products/kyc/rc-verify
+    - POST https://api.okra.ng/v2/products/kyc/rc-tin-verify
+    - POST https://api.okra.ng/v2/products/kyc/customer-verify
+    - POST https://api.okra.ng/v2/pay/initiate
+    - POST https://api.okra.ng/v2/pay/verify
+    - POST https://api.okra.ng/v2/pay/link/create
+    - POST https://api.okra.ng/v2/pay/list
+    - POST https://api.okra.ng/v2/authorization/initiate
+    - POST https://api.okra.ng/v2/pay/authorization/reauth
+    - POST https://api.okra.ng/v2/pay/authorization/cancel
+    - POST https://api.okra.ng/v2/bulkfiles/initiate
+    - POST https://api.okra.ng/v2/banks/list
+    - POST https://api.okra.ng/v2/banks/getById
+    - POST https://api.okra.ng/v2/customers/list
+    - POST https://api.okra.ng/v2/customers/find-customers-by
+    - POST https://api.okra.ng/v2/customers/flag
+    - POST https://api.okra.ng/v2/customers/unflag
+    - POST https://api.okra.ng/v2/customers/remove
+    - POST https://api.okra.ng/v2/wallet/balance/check
+    - POST https://api.okra.ng/v2/wallet/topups
+    - POST https://api.okra.ng/v2/reports/schedule
+    - POST https://api.okra.ng/v2/reports/details
+  endpointsModeled:
+    - Request and response JSON body schemas for every endpoint (field names,
+      types, and nesting) in openapi/okra-africa-openapi.yml are modeled from the
+      SDK parameter models and archived docs, not verified against a live server.
+sources:
+  - url: https://github.com/okraHQ/okra-node
+    type: SourceCode
+    note: Official Okra Node SDK (archived 2024-02-09). Base URL, Bearer-secret auth, and endpoint paths confirmed here.
+  - url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+    type: Documentation
+    note: Archived Okra API reference index (product structure).
+  - url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+    type: APIReference
+    note: Archived Identity product reference.
+  - url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+    type: APIReference
+    note: Archived Payments product reference.
+  - url: https://nairametrics.com/2025/07/11/inside-the-fall-of-okra-how-africas-most-promising-open-banking-startup-shut-down-at-its-peak/
+    type: News
+    note: Report of Okra ceasing operations in May 2025.
+  - url: https://launchbaseafrica.com/2025/07/02/a-farewell-to-okra-nigerias-once-bright-api-startup/
+    type: News
+    note: Report of Okra shutdown.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and Okra's own public API was
+    request/response REST plus a client-side Widget and server-to-server
+    webhooks. No AsyncAPI document was created because there is no documented
+    server-push transport on Okra's API to model. The provider is retired; this
+    entry preserves the historical, SDK-grounded API surface with modeled schemas
+    clearly flagged.

@@ -1,0 +1,130 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Okra
+providerId: okra-africa
+created: '2026-07-12'
+modified: '2026-07-12'
+reconciled: false
+status: retired
+tags:
+- Open Banking
+- Open Finance
+- Payments
+- Fintech
+- Nigeria
+- Plans
+description: >-
+  HISTORICAL. Okra billed API usage on a consumption basis metered through a
+  prepaid billing wallet (see the Wallet API). Every business received a free
+  allowance of production API calls plus unlimited sandbox calls; beyond the
+  free allowance, usage was pay-as-you-go per successful API call / per
+  connected account, with volume and enterprise pricing arranged by contacting
+  sales@okra.ng. Exact per-call and per-connection rates were not published on a
+  public price list and are not reconciled here. Okra ceased operations in May
+  2025, so all plans below are historical and no longer purchasable.
+notes: >-
+  The pricing page (okra.ng/pricing) advertised a free production allowance and
+  "contact sales" for volume. It did not publish per-unit NGN/USD rates. Do not
+  treat the entries below as authoritative amounts - they capture the documented
+  structure only. Provider is defunct.
+sources:
+- https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+- https://okra.ng/pricing
+- https://github.com/okraHQ/okra-node
+plans:
+- id: okra-sandbox
+  name: Sandbox
+  type: free
+  description: >-
+    Free, unlimited sandbox environment at https://api.okra.ng/v2/sandbox/ for
+    development and testing against simulated bank customers.
+  entries:
+  - label: Sandbox Calls
+    name: sandbox_calls
+    type: usage
+    metric: requests
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free (sandbox)
+    userMultiplied: false
+  elements:
+  - name: Full Product Access (Sandbox)
+  - name: Simulated Customers
+- id: okra-free-production
+  name: Production Free Allowance
+  type: free
+  description: >-
+    A bounded allowance of free production API calls granted to every business
+    to get started before pay-as-you-go billing applied.
+  entries:
+  - label: Free Production Calls
+    name: free_production_calls
+    type: usage
+    metric: requests
+    limit: -1
+    timeFrame: lifetime
+    geo: NG
+    unit: 1
+    price: $0 up to the free production allowance (historically ~100 calls)
+    userMultiplied: false
+  elements:
+  - name: Production Access
+- id: okra-pay-as-you-go
+  name: Pay As You Go
+  type: usage
+  description: >-
+    Consumption billing beyond the free allowance, metered per successful API
+    call and/or per connected bank account and settled from the prepaid billing
+    wallet. Public per-unit rates were not published.
+  entries:
+  - label: Successful API Calls
+    name: successful_api_calls
+    type: usage
+    metric: requests
+    limit: -1
+    timeFrame: month
+    geo: NG
+    unit: 1
+    price: usage-based per successful call (rate not published)
+    userMultiplied: false
+  - label: Connected Accounts
+    name: connected_accounts
+    type: usage
+    metric: connections
+    limit: -1
+    timeFrame: month
+    geo: NG
+    unit: 1
+    price: usage-based per connected account (rate not published)
+    userMultiplied: false
+  elements:
+  - name: Auth / Accounts / Balance / Transactions
+  - name: Identity / Income / KYC
+  - name: Payments and Direct Debit
+  - name: Prepaid Billing Wallet
+- id: okra-enterprise
+  name: Volume / Enterprise
+  type: enterprise
+  description: >-
+    Negotiated volume pricing, custom limits, and support arranged directly with
+    Okra sales for high-throughput customers.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: NG
+    unit: 1
+    price: contact sales (historical)
+    userMultiplied: false
+  elements:
+  - name: Volume Pricing
+  - name: Custom Limits and Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

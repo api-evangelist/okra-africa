@@ -1,0 +1,56 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Okra
+providerId: okra-africa
+created: '2026-07-12'
+modified: '2026-07-12'
+reconciled: false
+status: retired
+tags:
+- Open Banking
+- Open Finance
+- Nigeria
+- Rate Limiting
+- Quotas
+description: >-
+  HISTORICAL. Okra did not publish fixed numeric per-minute rate limits for its
+  public REST API. Practical throughput was governed by plan / billing-wallet
+  balance (usage was pay-as-you-go per successful call) rather than a documented
+  request-per-second cap, and by the availability of the underlying bank
+  connections. Sandbox usage was unlimited and free. Numeric limits are not
+  documented and could not be verified because the service is shut down
+  (api.okra.ng no longer resolves).
+notes: >-
+  No authoritative per-endpoint or per-account request-rate figures were
+  published by Okra. Clients were expected to handle retries and to fund the
+  billing wallet to continue making production calls. Provider is defunct.
+sources:
+- https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+- https://github.com/okraHQ/okra-node
+responseCodes:
+  throttled: 429
+limits:
+- name: Production API Requests
+  scope: account
+  metric: requests
+  limit: not published
+  notes: No fixed numeric request-rate limit was documented; production usage was metered and billed per successful call.
+- name: Sandbox Requests
+  scope: account
+  metric: requests
+  limit: unlimited
+  notes: Sandbox environment was free and unlimited for testing.
+- name: Billing Wallet Balance
+  scope: account
+  metric: balance
+  limit: prepaid
+  notes: Production calls were settled from a prepaid billing wallet; an empty wallet effectively halted paid usage.
+policies:
+- name: Retry / Backoff
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+- name: Auto Top-up
+  description: The Wallet API supported auto-top-up and threshold settings to avoid interruption when the billing wallet ran low.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

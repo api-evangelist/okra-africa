@@ -1,0 +1,20 @@
+generated: '2026-07-12'
+method: derived
+source: openapi/okra-africa-openapi.yml
+status: retired
+summary:
+  types:
+  - http
+schemes:
+- name: okraSecret
+  type: http
+  scheme: bearer
+  description: >-
+    Okra Secret key, sent as `Authorization: Bearer <secret>`. The secret was
+    issued in the Okra dashboard (https://dash.okra.ng/settings/api-keys) and a
+    separate key existed per environment (production vs sandbox). Confirmed from
+    the official okraHQ/okra-node SDK request wrapper
+    (src/utils/req-wrapper.js). RETIRED - the auth host no longer resolves.
+  sources:
+  - openapi/okra-africa-openapi.yml
+  - https://github.com/okraHQ/okra-node
