@@ -330,6 +330,8 @@ apis:
     data - /reports/schedule, /reports/details, and /reports/download. RETIRED -
     host api.okra.ng no longer resolves.
 common:
+- type: AgenticAccess
+  url: agentic-access/okra-africa-agentic-access.yml
 - type: DomainSecurity
   url: security/okra-africa-domain-security.yml
 - type: Authentication
