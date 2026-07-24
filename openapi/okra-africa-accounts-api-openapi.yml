@@ -1,0 +1,128 @@
+openapi: 3.0.3
+info:
+  title: Okra API (Historical) Accounts API
+  description: RETIRED. Okra was an open finance / open banking infrastructure API for Africa (Nigeria). This OpenAPI documents the historical, now-discontinued REST surface. Okra ceased operations in May 2025 and the host api.okra.ng no longer resolves; the paths and Bearer-secret auth below are CONFIRMED from Okra's official okraHQ/okra-node SDK, but request/response body schemas are MODELED (reconstructed from SDK parameter models and archived documentation) and are illustrative rather than authoritative. Reads and writes alike used POST with a JSON filter body. Account linking happened client-side through the Okra Widget, producing the `record`/`customer` identifiers that data endpoints operate against.
+  version: '2.0'
+  contact:
+    name: Okra (defunct)
+    url: https://okra.ng
+  x-status: retired
+  x-ceased-operations: 2025-05
+  x-grounding: Endpoint paths, base URL, and Bearer-secret auth confirmed from github.com/okraHQ/okra-node (archived 2024-02-09). Body schemas modeled.
+servers:
+- url: https://api.okra.ng/v2
+  description: Production (retired - no longer resolves)
+- url: https://api.okra.ng/v2/sandbox
+  description: Sandbox (retired - no longer resolves)
+security:
+- okraSecret: []
+tags:
+- name: Accounts
+  description: Bank accounts a customer has linked.
+paths:
+  /products/accounts:
+    post:
+      operationId: retrieveAccounts
+      tags:
+      - Accounts
+      summary: Retrieve linked accounts
+      requestBody:
+        $ref: '#/components/requestBodies/ProductFilter'
+      responses:
+        '200':
+          $ref: '#/components/responses/OkraData'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /accounts/getByCustomer:
+    post:
+      operationId: getAccountsByCustomer
+      tags:
+      - Accounts
+      summary: Get accounts by customer
+      requestBody:
+        $ref: '#/components/requestBodies/CustomerFilter'
+      responses:
+        '200':
+          $ref: '#/components/responses/OkraData'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  requestBodies:
+    ProductFilter:
+      description: Modeled product-record filter body.
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ProductFilter'
+    CustomerFilter:
+      description: Modeled customer-scoped filter body.
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CustomerFilter'
+  responses:
+    Unauthorized:
+      description: Missing or invalid Okra Secret.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OkraEnvelope'
+    OkraData:
+      description: MODELED. Okra responses were JSON envelopes of the form {status, message, data}. The exact `data` shape varied per product and is not reproduced authoritatively here.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/OkraEnvelope'
+  schemas:
+    OkraEnvelope:
+      type: object
+      description: Modeled Okra response envelope.
+      properties:
+        status:
+          type: string
+          example: success
+        message:
+          type: string
+        data:
+          type: object
+          additionalProperties: true
+      additionalProperties: true
+    ProductFilter:
+      type: object
+      description: Modeled. Typical product call scoped by a linked record and/or customer.
+      properties:
+        record:
+          type: string
+          description: The record id produced when the customer linked a bank via the Okra Widget.
+        customer:
+          type: string
+          description: The Okra customer id.
+        page:
+          type: integer
+        limit:
+          type: integer
+      additionalProperties: true
+    CustomerFilter:
+      type: object
+      description: Modeled. Customer-scoped filter, optionally with a date range.
+      properties:
+        customer:
+          type: string
+        from:
+          type: string
+          format: date
+        to:
+          type: string
+          format: date
+        page:
+          type: integer
+        limit:
+          type: integer
+      additionalProperties: true
+  securitySchemes:
+    okraSecret:
+      type: http
+      scheme: bearer
+      description: 'Okra Secret key issued in the Okra dashboard, sent as `Authorization: Bearer <secret>`. Confirmed from okraHQ/okra-node.'
