@@ -15,7 +15,20 @@ description: >-
   unrelated parked page. This entry documents the historical, now-discontinued
   API surface, grounded in Okra's official okraHQ/okra-node SDK and archived
   documentation.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/okra-africa.png
 tags:
 - Open Banking
 - Open Finance
@@ -32,303 +45,666 @@ created: '2026-07-12'
 modified: '2026-07-12'
 specificationVersion: '0.19'
 apis:
-- aid: okra-africa:okra-africa-auth-api
-  name: Okra Auth API
-  tags:
-  - Authentication
-  - Account Linking
-  - Bank Data
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api/Auth
-  baseURL: https://api.okra.ng/v2
-  properties:
-  - url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api/Auth
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Retrieves the authentication data tied to a linked bank account - account and
-    routing (NUBAN) details established when a customer connects a bank through the
-    Okra Widget. Exposes POST /products/auths to create/refresh auth records and
-    retrieval by id, customer, bank, and date. RETIRED - host api.okra.ng no longer
-    resolves.
 - aid: okra-africa:okra-africa-accounts-api
   name: Okra Accounts API
+  description: Bank accounts a customer has linked.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
   tags:
   - Accounts
-  - Bank Data
-  - Account Linking
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api/Account
-  baseURL: https://api.okra.ng/v2
   properties:
-  - url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api/Account
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Lists and retrieves the bank accounts a customer has linked through Okra -
-    POST /products/accounts plus retrieval by id, customer, bank, balance, and
-    name. RETIRED - host api.okra.ng no longer resolves.
+  - type: OpenAPI
+    url: openapi/okra-africa-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
+- aid: okra-africa:okra-africa-auth-api
+  name: Okra Auth API
+  description: Authentication data for linked bank accounts.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/okra-africa-auth-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
 - aid: okra-africa:okra-africa-balance-api
   name: Okra Balance API
+  description: Real-time and cached account balances.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
   tags:
   - Balance
-  - Bank Data
-  - Real Time
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api/Balance
-  baseURL: https://api.okra.ng/v2
   properties:
-  - url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api/Balance
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Retrieves real-time and cached account balances for linked accounts - POST
-    /balance/check for a live balance, /balance/refresh to force an update, and
-    retrieval by id, account, type, customer, and date. RETIRED - host
-    api.okra.ng no longer resolves.
-- aid: okra-africa:okra-africa-transactions-api
-  name: Okra Transactions API
-  tags:
-  - Transactions
-  - Bank Data
-  - Financial Data
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api/Transactions
-  baseURL: https://api.okra.ng/v2
-  properties:
-  - url: https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api/Transactions
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Retrieves categorized transaction history for linked accounts - POST
-    /transactions/process and /transactions/refresh, retrieval by id, account,
-    bank, type, NUBAN, customer, and date, plus a downloadable statement via
-    /products/transactions/download. RETIRED - host api.okra.ng no longer resolves.
-- aid: okra-africa:okra-africa-identity-api
-  name: Okra Identity API
-  tags:
-  - Identity
-  - KYC
-  - Financial Data
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api/Identity
-  baseURL: https://api.okra.ng/v2
-  properties:
-  - url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api/Identity
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Retrieves the verified identity profile attached to a linked bank account -
-    name, phone, email, address, and BVN/NIN-derived attributes - via POST
-    /products/identities, /products/identity/merge, and retrieval by id, customer,
-    and date. RETIRED - host api.okra.ng no longer resolves.
-- aid: okra-africa:okra-africa-income-api
-  name: Okra Income API
-  tags:
-  - Income
-  - Financial Data
-  - Underwriting
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api
-  baseURL: https://api.okra.ng/v2
-  properties:
-  - url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Derives income and affordability signals from a customer's linked bank
-    transaction history - POST /products/income/process and /products/income/get,
-    with retrieval by id, customer, and date. Used for lending and underwriting.
-    RETIRED - host api.okra.ng no longer resolves.
-- aid: okra-africa:okra-africa-verification-api
-  name: Okra Verification (KYC) API
-  tags:
-  - KYC
-  - Verification
-  - Identity
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api
-  baseURL: https://api.okra.ng/v2
-  properties:
-  - url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Runs Nigerian KYC checks - BVN, NUBAN name match, TIN, RC (company
-    registration), and general customer verification - via the /products/kyc/*
-    endpoints (bvn-verify, nuban-verify, nuban-name-verify, tin-verify,
-    rc-tin-verify, rc-verify, customer-verify). RETIRED - host api.okra.ng no
-    longer resolves.
-- aid: okra-africa:okra-africa-payments-api
-  name: Okra Payments API
-  tags:
-  - Payments
-  - Direct Debit
-  - Bank Transfer
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api/Payments
-  baseURL: https://api.okra.ng/v2
-  properties:
-  - url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api/Payments
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Initiates and manages bank-to-bank payments and recurring direct-debit
-    authorizations - POST /pay/initiate, /pay/verify, /pay/link/create,
-    /authorization/initiate, /pay/authorization/reauth, /pay/authorization/cancel,
-    and /bulkfiles/initiate, with payment and authorization listing. RETIRED -
-    host api.okra.ng no longer resolves.
+  - type: OpenAPI
+    url: openapi/okra-africa-balance-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
 - aid: okra-africa:okra-africa-banks-api
   name: Okra Banks API
+  description: Reference list of connectable banks.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
   tags:
   - Banks
-  - Reference Data
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api/Banks
-  baseURL: https://api.okra.ng/v2
   properties:
-  - url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api/Banks
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Reference list of the Nigerian banks and financial institutions Okra could
-    connect to - POST /banks/list and /banks/getById. RETIRED - host api.okra.ng
-    no longer resolves.
+  - type: OpenAPI
+    url: openapi/okra-africa-banks-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
 - aid: okra-africa:okra-africa-customers-api
   name: Okra Customers API
+  description: End-user (customer) management.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
   tags:
   - Customers
-  - Account Management
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api/Customer
-  baseURL: https://api.okra.ng/v2
   properties:
-  - url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api/Customer
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Manages the end users (customers) linked to a business - list and find
-    customers, and flag, unflag, or remove them via /customers/list,
-    /customers/find-customers-by, /customers/flag, /customers/unflag, and
-    /customers/remove. RETIRED - host api.okra.ng no longer resolves.
-- aid: okra-africa:okra-africa-wallet-api
-  name: Okra Wallet API
+  - type: OpenAPI
+    url: openapi/okra-africa-customers-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
+- aid: okra-africa:okra-africa-identity-api
+  name: Okra Identity API
+  description: Verified identity profiles.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
   tags:
-  - Wallet
-  - Billing
-  - Account Management
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api/Wallets
-  baseURL: https://api.okra.ng/v2
+  - Identity
   properties:
-  - url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api/Wallets
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Manages the Okra billing wallet that funds API usage - check balance, list
-    top-ups, configure auto-top-up and thresholds via /wallet/balance/check,
-    /wallet/topups, /wallet/autotopup, and /wallet/threshold. RETIRED - host
-    api.okra.ng no longer resolves.
+  - type: OpenAPI
+    url: openapi/okra-africa-identity-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
+- aid: okra-africa:okra-africa-income-api
+  name: Okra Income API
+  description: Income and affordability signals.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
+  tags:
+  - Income
+  properties:
+  - type: OpenAPI
+    url: openapi/okra-africa-income-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
+- aid: okra-africa:okra-africa-payments-api
+  name: Okra Payments API
+  description: Bank-to-bank payments and direct-debit authorizations.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/okra-africa-payments-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
 - aid: okra-africa:okra-africa-reports-api
   name: Okra Reports API
+  description: Scheduled financial reports.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
   tags:
   - Reports
-  - Financial Data
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.okra.ng/reference/api
-  baseURL: https://api.okra.ng/v2
   properties:
-  - url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
-    type: Documentation
-  - url: https://docs.okra.ng/reference/api
-    type: APIReference
-  - url: openapi/okra-africa-openapi.yml
-    type: OpenAPI
-  - url: collections/okra-africa.postman_collection.json
-    type: PostmanCollection
-  - url: collections/okra-africa.opencollection.json
-    type: OpenCollection
-  description: >-
-    Schedules and downloads financial reports compiled from a customer's linked
-    data - /reports/schedule, /reports/details, and /reports/download. RETIRED -
-    host api.okra.ng no longer resolves.
+  - type: OpenAPI
+    url: openapi/okra-africa-reports-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
+- aid: okra-africa:okra-africa-transactions-api
+  name: Okra Transactions API
+  description: Categorized transaction history.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/okra-africa-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
+- aid: okra-africa:okra-africa-verification-api
+  name: Okra Verification API
+  description: Nigerian KYC checks (BVN, NUBAN, TIN, RC).
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
+  tags:
+  - Verification
+  properties:
+  - type: OpenAPI
+    url: openapi/okra-africa-verification-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
+- aid: okra-africa:okra-africa-wallet-api
+  name: Okra Wallet API
+  description: Billing wallet used to fund API usage.
+  humanURL: https://docs.okra.ng/reference/api/Auth
+  baseURL: https://api.okra.ng/v2
+  tags:
+  - Wallet
+  properties:
+  - type: OpenAPI
+    url: openapi/okra-africa-wallet-api-openapi.yml
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005139/https://docs.okra.ng/reference/api/Auth
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Auth
+  - type: PostmanCollection
+    url: collections/okra-africa.postman_collection.json
+  - type: OpenCollection
+    url: collections/okra-africa.opencollection.json
+  - type: Documentation
+    url: https://web.archive.org/web/20240225025307/https://docs.okra.ng/reference/api/Account
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Account
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023518/https://docs.okra.ng/reference/api/Balance
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Balance
+  - type: Documentation
+    url: >-
+      https://web.archive.org/web/20240225015711/https://docs.okra.ng/reference/api/Transactions
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Transactions
+  - type: Documentation
+    url: https://web.archive.org/web/20240225022834/https://docs.okra.ng/reference/api/Identity
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Identity
+  - type: Documentation
+    url: https://web.archive.org/web/20240418181836/https://docs.okra.ng/reference/api
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api
+  - type: Documentation
+    url: https://web.archive.org/web/20240225023335/https://docs.okra.ng/reference/api/Payments
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Payments
+  - type: Documentation
+    url: https://web.archive.org/web/20241209034308/https://docs.okra.ng/reference/api/Banks
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Banks
+  - type: Documentation
+    url: https://web.archive.org/web/20240225005456/https://docs.okra.ng/reference/api/Customer
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Customer
+  - type: Documentation
+    url: https://web.archive.org/web/20241209040907/https://docs.okra.ng/reference/api/Wallets
+  - type: APIReference
+    url: https://docs.okra.ng/reference/api/Wallets
 common:
 - type: AgenticAccess
   url: agentic-access/okra-africa-agentic-access.yml
