@@ -1,0 +1,36 @@
+{
+  "provider": "okra-africa",
+  "sources": [
+    "okra-africa-accounts-api-openapi.yml",
+    "okra-africa-auth-api-openapi.yml",
+    "okra-africa-balance-api-openapi.yml",
+    "okra-africa-banks-api-openapi.yml",
+    "okra-africa-customers-api-openapi.yml",
+    "okra-africa-identity-api-openapi.yml",
+    "okra-africa-income-api-openapi.yml",
+    "okra-africa-payments-api-openapi.yml",
+    "okra-africa-reports-api-openapi.yml",
+    "okra-africa-transactions-api-openapi.yml",
+    "okra-africa-verification-api-openapi.yml",
+    "okra-africa-wallet-api-openapi.yml"
+  ],
+  "outputs": [
+    "okra-africa-accounts-api-openapi.yml",
+    "okra-africa-auth-api-openapi.yml",
+    "okra-africa-balance-api-openapi.yml",
+    "okra-africa-banks-api-openapi.yml",
+    "okra-africa-customers-api-openapi.yml",
+    "okra-africa-identity-api-openapi.yml",
+    "okra-africa-income-api-openapi.yml",
+    "okra-africa-payments-api-openapi.yml",
+    "okra-africa-reports-api-openapi.yml",
+    "okra-africa-transactions-api-openapi.yml",
+    "okra-africa-verification-api-openapi.yml",
+    "okra-africa-wallet-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
