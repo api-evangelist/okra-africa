@@ -1,0 +1,312 @@
+{
+  "item": [
+    {
+      "id": "4c954567-76fa-4558-b47a-7914348551e4",
+      "name": "Balance",
+      "description": {
+        "content": "Real-time and cached account balances.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "40d613fa-6c15-4f3c-a751-78295c4acd58",
+          "name": "Check real-time balance",
+          "request": {
+            "name": "Check real-time balance",
+            "description": {
+              "content": "Returns a live balance for a linked account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "balance",
+                "check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_id\": \"<string>\",\n  \"customer\": \"<string>\",\n  \"key_0\": 2848.2446357243875\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "54f85d92-0e3b-4f3a-9395-b44d5950f2d7",
+              "name": "MODELED. Okra responses were JSON envelopes of the form {status, message, data}. The exact `data` shape varied per product and is not reproduced authoritatively here.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balance",
+                    "check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": true,\n    \"key_1\": 8850.106888737633,\n    \"key_2\": 2928\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3b20b643-d25f-4bba-b557-b360687a8a59",
+              "name": "Missing or invalid Okra Secret.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balance",
+                    "check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": true,\n    \"key_1\": 8850.106888737633,\n    \"key_2\": 2928\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "843d5298-9dc5-4b70-a320-d86748daff2f",
+          "name": "Refresh balance",
+          "request": {
+            "name": "Refresh balance",
+            "description": {},
+            "url": {
+              "path": [
+                "balance",
+                "refresh"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_id\": \"<string>\",\n  \"customer\": \"<string>\",\n  \"key_0\": 2848.2446357243875\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5b3558b-cd98-4487-a229-e9fa191de485",
+              "name": "MODELED. Okra responses were JSON envelopes of the form {status, message, data}. The exact `data` shape varied per product and is not reproduced authoritatively here.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balance",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": true,\n    \"key_1\": 8850.106888737633,\n    \"key_2\": 2928\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25aa3461-378a-4ad5-803d-0ff803d1d159",
+              "name": "Missing or invalid Okra Secret.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "balance",
+                    "refresh"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": true,\n    \"key_1\": 8850.106888737633,\n    \"key_2\": 2928\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.okra.ng/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c25183cf-19b3-492a-825f-d644797e94e7",
+    "name": "Okra API (Historical) Accounts Balance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RETIRED. Okra was an open finance / open banking infrastructure API for Africa (Nigeria). This OpenAPI documents the historical, now-discontinued REST surface. Okra ceased operations in May 2025 and the host api.okra.ng no longer resolves; the paths and Bearer-secret auth below are CONFIRMED from Okra's official okraHQ/okra-node SDK, but request/response body schemas are MODELED (reconstructed from SDK parameter models and archived documentation) and are illustrative rather than authoritative. Reads and writes alike used POST with a JSON filter body. Account linking happened client-side through the Okra Widget, producing the `record`/`customer` identifiers that data endpoints operate against.\n\nContact Support:\n Name: Okra (defunct)",
+      "type": "text/plain"
+    }
+  }
+}

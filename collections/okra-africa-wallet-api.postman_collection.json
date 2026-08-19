@@ -1,0 +1,178 @@
+{
+  "item": [
+    {
+      "id": "e1efb046-7af7-47e7-ac59-36b813e2cc69",
+      "name": "Wallet",
+      "description": {
+        "content": "Billing wallet used to fund API usage.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53e05da3-e147-4f73-a2be-54c0e61cf246",
+          "name": "Check billing wallet balance",
+          "request": {
+            "name": "Check billing wallet balance",
+            "description": {},
+            "url": {
+              "path": [
+                "wallet",
+                "balance",
+                "check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": 3878.4059392350955\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fe1e4357-38ce-4f3f-ab29-4914ecb6c5ff",
+              "name": "MODELED. Okra responses were JSON envelopes of the form {status, message, data}. The exact `data` shape varied per product and is not reproduced authoritatively here.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "balance",
+                    "check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": \"string\",\n    \"key_1\": 4176,\n    \"key_2\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2eb2f15-08db-41bf-be36-42bf1c857b53",
+              "name": "Missing or invalid Okra Secret.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wallet",
+                    "balance",
+                    "check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": \"string\",\n    \"key_1\": 4176,\n    \"key_2\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.okra.ng/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7d5b036c-ab63-4406-a9b2-334f402ce12a",
+    "name": "Okra API (Historical) Accounts Wallet API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RETIRED. Okra was an open finance / open banking infrastructure API for Africa (Nigeria). This OpenAPI documents the historical, now-discontinued REST surface. Okra ceased operations in May 2025 and the host api.okra.ng no longer resolves; the paths and Bearer-secret auth below are CONFIRMED from Okra's official okraHQ/okra-node SDK, but request/response body schemas are MODELED (reconstructed from SDK parameter models and archived documentation) and are illustrative rather than authoritative. Reads and writes alike used POST with a JSON filter body. Account linking happened client-side through the Okra Widget, producing the `record`/`customer` identifiers that data endpoints operate against.\n\nContact Support:\n Name: Okra (defunct)",
+      "type": "text/plain"
+    }
+  }
+}

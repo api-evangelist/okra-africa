@@ -1,0 +1,726 @@
+{
+  "item": [
+    {
+      "id": "3e064b84-13d6-40f1-95b3-cc08429c7637",
+      "name": "Verification",
+      "description": {
+        "content": "Nigerian KYC checks (BVN, NUBAN, TIN, RC).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6ee75aa-1f19-47cf-ab03-b82084eeb24e",
+          "name": "Verify a BVN",
+          "request": {
+            "name": "Verify a BVN",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "kyc",
+                "bvn-verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bvn\": \"<string>\",\n  \"nuban\": \"<string>\",\n  \"bank\": \"<string>\",\n  \"tin\": \"<string>\",\n  \"rc_number\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1d319136-2233-41dc-a669-9e2e851dd4dd",
+              "name": "MODELED. Okra responses were JSON envelopes of the form {status, message, data}. The exact `data` shape varied per product and is not reproduced authoritatively here.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "kyc",
+                    "bvn-verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": 9309,\n    \"key_1\": 758\n  },\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72821f0c-974d-4f3b-a94b-a87bce5fbf34",
+              "name": "Missing or invalid Okra Secret.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "kyc",
+                    "bvn-verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": 9309,\n    \"key_1\": 758\n  },\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a927681d-42ee-4674-bb24-0add8a395842",
+          "name": "Verify a NUBAN account number",
+          "request": {
+            "name": "Verify a NUBAN account number",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "kyc",
+                "nuban-verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bvn\": \"<string>\",\n  \"nuban\": \"<string>\",\n  \"bank\": \"<string>\",\n  \"tin\": \"<string>\",\n  \"rc_number\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85b656b7-d378-4f30-9092-97fe339c29a9",
+              "name": "MODELED. Okra responses were JSON envelopes of the form {status, message, data}. The exact `data` shape varied per product and is not reproduced authoritatively here.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "kyc",
+                    "nuban-verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": 9309,\n    \"key_1\": 758\n  },\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d8f9ce8-3306-4228-ace0-61cdc4b5d54f",
+              "name": "Missing or invalid Okra Secret.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "kyc",
+                    "nuban-verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": 9309,\n    \"key_1\": 758\n  },\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "760064f9-e8cd-4a87-8716-2c4da234d2da",
+          "name": "Verify a NUBAN account name match",
+          "request": {
+            "name": "Verify a NUBAN account name match",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "kyc",
+                "nuban-name-verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bvn\": \"<string>\",\n  \"nuban\": \"<string>\",\n  \"bank\": \"<string>\",\n  \"tin\": \"<string>\",\n  \"rc_number\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cf3b8127-f871-4be2-abd2-2ef2b4ba441a",
+              "name": "MODELED. Okra responses were JSON envelopes of the form {status, message, data}. The exact `data` shape varied per product and is not reproduced authoritatively here.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "kyc",
+                    "nuban-name-verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": 9309,\n    \"key_1\": 758\n  },\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b59d949-d5e6-4208-a81b-764d1b37c18d",
+              "name": "Missing or invalid Okra Secret.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "kyc",
+                    "nuban-name-verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": 9309,\n    \"key_1\": 758\n  },\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6beb288a-4eab-4117-b15e-28d5778ed27d",
+          "name": "Verify a Tax Identification Number (TIN)",
+          "request": {
+            "name": "Verify a Tax Identification Number (TIN)",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "kyc",
+                "tin-verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bvn\": \"<string>\",\n  \"nuban\": \"<string>\",\n  \"bank\": \"<string>\",\n  \"tin\": \"<string>\",\n  \"rc_number\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78e864bb-4950-412d-aec2-25e473e281bc",
+              "name": "MODELED. Okra responses were JSON envelopes of the form {status, message, data}. The exact `data` shape varied per product and is not reproduced authoritatively here.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "kyc",
+                    "tin-verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": 9309,\n    \"key_1\": 758\n  },\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97c05e3d-0add-40c8-86d9-1e8a6104f2dd",
+              "name": "Missing or invalid Okra Secret.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "kyc",
+                    "tin-verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": 9309,\n    \"key_1\": 758\n  },\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "214955a2-479d-47d4-b7ec-1cbbc93eb23c",
+          "name": "Verify a company registration (RC) number",
+          "request": {
+            "name": "Verify a company registration (RC) number",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "kyc",
+                "rc-verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bvn\": \"<string>\",\n  \"nuban\": \"<string>\",\n  \"bank\": \"<string>\",\n  \"tin\": \"<string>\",\n  \"rc_number\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0241409-c6ab-4c42-bfb8-51fa729be497",
+              "name": "MODELED. Okra responses were JSON envelopes of the form {status, message, data}. The exact `data` shape varied per product and is not reproduced authoritatively here.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "kyc",
+                    "rc-verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": 9309,\n    \"key_1\": 758\n  },\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c1739a7-c67f-4b0a-9976-4624a28fe642",
+              "name": "Missing or invalid Okra Secret.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "kyc",
+                    "rc-verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"message\": \"string\",\n  \"data\": {\n    \"key_0\": 9309,\n    \"key_1\": 758\n  },\n  \"key_0\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.okra.ng/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "06cf196d-28d9-4b58-bb4a-fdf3285c5102",
+    "name": "Okra API (Historical) Accounts Verification API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RETIRED. Okra was an open finance / open banking infrastructure API for Africa (Nigeria). This OpenAPI documents the historical, now-discontinued REST surface. Okra ceased operations in May 2025 and the host api.okra.ng no longer resolves; the paths and Bearer-secret auth below are CONFIRMED from Okra's official okraHQ/okra-node SDK, but request/response body schemas are MODELED (reconstructed from SDK parameter models and archived documentation) and are illustrative rather than authoritative. Reads and writes alike used POST with a JSON filter body. Account linking happened client-side through the Okra Widget, producing the `record`/`customer` identifiers that data endpoints operate against.\n\nContact Support:\n Name: Okra (defunct)",
+      "type": "text/plain"
+    }
+  }
+}

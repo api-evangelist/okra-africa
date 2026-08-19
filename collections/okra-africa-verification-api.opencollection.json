@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Okra API (Historical) Accounts Verification API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Verification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verify a BVN",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.okra.ng/v2/products/kyc/bvn-verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a BVN"
+        },
+        {
+          "info": {
+            "name": "Verify a NUBAN account number",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.okra.ng/v2/products/kyc/nuban-verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a NUBAN account number"
+        },
+        {
+          "info": {
+            "name": "Verify a NUBAN account name match",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.okra.ng/v2/products/kyc/nuban-name-verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a NUBAN account name match"
+        },
+        {
+          "info": {
+            "name": "Verify a Tax Identification Number (TIN)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.okra.ng/v2/products/kyc/tin-verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a Tax Identification Number (TIN)"
+        },
+        {
+          "info": {
+            "name": "Verify a company registration (RC) number",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.okra.ng/v2/products/kyc/rc-verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify a company registration (RC) number"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

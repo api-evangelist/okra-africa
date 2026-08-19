@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Okra API (Historical) Accounts Auth API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve authentication data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.okra.ng/v2/products/auths",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or refreshes the auth (account + NUBAN) record for a linked account."
+        },
+        {
+          "info": {
+            "name": "Get auth records by customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.okra.ng/v2/auth/getByCustomer",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get auth records by customer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
