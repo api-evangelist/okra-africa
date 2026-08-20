@@ -51,6 +51,8 @@ apis:
   humanURL: https://docs.okra.ng/reference/api/Auth
   baseURL: https://api.okra.ng/v2
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -106,6 +108,8 @@ apis:
   humanURL: https://docs.okra.ng/reference/api/Auth
   baseURL: https://api.okra.ng/v2
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -161,6 +165,8 @@ apis:
   humanURL: https://docs.okra.ng/reference/api/Auth
   baseURL: https://api.okra.ng/v2
   tags:
+  - Balances
+  tags_raw:
   - Balance
   properties:
   - type: OpenAPI
@@ -546,6 +552,8 @@ apis:
   humanURL: https://docs.okra.ng/reference/api/Auth
   baseURL: https://api.okra.ng/v2
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
@@ -656,6 +664,8 @@ apis:
   humanURL: https://docs.okra.ng/reference/api/Auth
   baseURL: https://api.okra.ng/v2
   tags:
+  - Wallets
+  tags_raw:
   - Wallet
   properties:
   - type: OpenAPI
