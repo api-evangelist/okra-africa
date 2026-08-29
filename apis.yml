@@ -15,6 +15,18 @@ description: >-
   unrelated parked page. This entry documents the historical, now-discontinued
   API surface, grounded in Okra's official okraHQ/okra-node SDK and archived
   documentation.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
